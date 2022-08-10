@@ -184,9 +184,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private void workerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workerButtonActionPerformed
         // TODO add your handling code here:
-        //        Workerlogin WL = new Workerlogin();
-        //        WL.setVisible(true);
-        //        dispose();
+                Workerlogin WL = new Workerlogin();
+                WL.setVisible(true);
+                dispose();
     }//GEN-LAST:event_workerButtonActionPerformed
 
     private void userButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userButtonActionPerformed
