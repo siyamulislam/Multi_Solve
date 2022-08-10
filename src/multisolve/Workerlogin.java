@@ -1,6 +1,5 @@
 package multisolve;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,14 +7,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Siam
@@ -29,7 +25,7 @@ public class Workerlogin extends javax.swing.JFrame {
     Statement stm;
     PreparedStatement pst = null;
     ResultSet rs = null;
-    
+
     public Workerlogin() {
         initComponents();
     }
@@ -170,38 +166,45 @@ public class Workerlogin extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        
-         HomePage hm = new HomePage();
+
+        HomePage hm = new HomePage();
         hm.setVisible(true);
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-   
-    workReg wr = new workReg();
-    wr.setVisible(true);
-    dispose();
+
+        workReg wr = new workReg();
+        wr.setVisible(true);
+        dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 
-//try{
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            String url="jdbc:sqlserver://localhost:1433;databaseName=MultiSolve;user=siam;password=123456;";
-//            Connection con = DriverManager.getConnection(url);
-//            String sql = "Select * from WorkerData where Phone=? and Password= ?";
-//            PreparedStatement pst = con.prepareStatement(sql);
+        try {
+            String phone = phoneTextFiled.getText();
+        String password = passwordTextFiled.getText();
+            String sql = "Select * from worker_data where phone="+phone+" and password="+password+"";
+            stm = conn.obtainConnection().createStatement();
+            rs = stm.executeQuery(sql);
+
 //            pst.setString(1, WPhonetext.getText());
 //            pst.setString(2, WPasText.getText());
-//            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                if(rs.getString("phone")==phone){
+                      System.out.println(rs.getString("age"));
+                }
+              
+            }
+            
 //            if(rs.next()){
 //                JOptionPane.showMessageDialog(null, "Phone and Password Matched");
 //                
-//             WorkerProfile wp= new WorkerProfile();
-//             wp.setVisible(true);
-//             dispose();
+////             WorkerProfile wp= new WorkerProfile();
+////             wp.setVisible(true);
+////             dispose();
 //              
 //              
 //            }
@@ -210,13 +213,9 @@ public class Workerlogin extends javax.swing.JFrame {
 //                WPhonetext.setText("");
 //                WPasText.setText("");
 //            }
-//            con.close();
-//        }
-//        catch(Exception e){
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//
-//
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_loginButtonActionPerformed
