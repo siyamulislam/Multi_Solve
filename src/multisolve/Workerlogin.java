@@ -185,34 +185,30 @@ public class Workerlogin extends javax.swing.JFrame {
 
         try {
             String phone = phoneTextFiled.getText();
-        String password = passwordTextFiled.getText();
-            String sql = "Select * from worker_data where phone="+phone+" and password="+password+"";
+            String password = passwordTextFiled.getText();
+            String sql = "Select * from worker_data where phone=" + phone + " and password=" + password + "";
             stm = conn.obtainConnection().createStatement();
             rs = stm.executeQuery(sql);
 
-//            pst.setString(1, WPhonetext.getText());
-//            pst.setString(2, WPasText.getText());
-            while(rs.next()){
-                if(rs.getString("phone")==phone){
-                      System.out.println(rs.getString("age"));
-                }
-              
+//             
+//            while(rs.next()){
+//                System.out.println(rs.getString("phone"));
+//                if(rs.getString("phone")==phone){
+//                      System.out.println(rs.getString("age"));
+//                }
+//            }
+//            
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Phone and Password Matched");
+                phoneTextFiled.setText("");
+                passwordTextFiled.setText("");
+//             WorkerProfile wp= new WorkerProfile();
+//             wp.setVisible(true);
+//             dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Phone and password not Correct");
+                
             }
-            
-//            if(rs.next()){
-//                JOptionPane.showMessageDialog(null, "Phone and Password Matched");
-//                
-////             WorkerProfile wp= new WorkerProfile();
-////             wp.setVisible(true);
-////             dispose();
-//              
-//              
-//            }
-//            else{
-//                JOptionPane.showMessageDialog(null, "Phone and password not Correct");
-//                WPhonetext.setText("");
-//                WPasText.setText("");
-//            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
