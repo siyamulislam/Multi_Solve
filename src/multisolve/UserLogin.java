@@ -185,8 +185,9 @@ public class UserLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Succesfully Logged In!");
                 UserPhoneText.setText("");
                 UserPasswordText.setText("");
-                WorkerProfile wp = new WorkerProfile();
-                wp.setVisible(true);
+                UserProfile.
+                userProfile up = new UserProfile();
+                up.setVisible(true);
                 dispose();
 
             } else {
