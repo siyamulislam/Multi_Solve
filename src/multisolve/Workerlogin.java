@@ -112,7 +112,6 @@ public class Workerlogin extends javax.swing.JFrame {
         titleLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         titleLabel.setText("MultiSolve");
 
-        backButton.setBackground(new java.awt.Color(51, 255, 204));
         backButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +147,7 @@ public class Workerlogin extends javax.swing.JFrame {
         backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/3IzejQ.jpg"))); // NOI18N
         backgroundLabel.setToolTipText("");
         mainPanel.add(backgroundLabel);
-        backgroundLabel.setBounds(-10, 0, 900, 710);
+        backgroundLabel.setBounds(-10, 0, 910, 710);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -202,9 +201,7 @@ public class Workerlogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Phone and Password Matched");
                 phoneTextFiled.setText("");
                 passwordTextFiled.setText("");
-//             WorkerProfile wp= new WorkerProfile();
-//             wp.setVisible(true);
-//             dispose();
+
             } else {
                 JOptionPane.showMessageDialog(null, "Phone and password not Correct");
                 
