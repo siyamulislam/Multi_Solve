@@ -198,13 +198,16 @@ public class Workerlogin extends javax.swing.JFrame {
 //            }
 //            
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Phone and Password Matched");
+                JOptionPane.showMessageDialog(null, "Succesfully Logged In!");
                 phoneTextFiled.setText("");
                 passwordTextFiled.setText("");
+                WorkerProfile wp = new WorkerProfile();
+                wp.setVisible(true);
+                dispose();
 
             } else {
                 JOptionPane.showMessageDialog(null, "Phone and password not Correct");
-                
+
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
