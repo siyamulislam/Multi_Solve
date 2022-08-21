@@ -241,7 +241,7 @@ public class UserReg extends javax.swing.JFrame {
         String phone = UPhone.getText();
         String password = UPass.getText();
 
-        String insertQuery = "Insert into user_data(first_name,last_name,address,email,gender,Age,phone,password) Values('" + fName + "', '" + lName + "', '" + address + "', '" + email + "','" + gender + "', '" + age + "','" + phone + "','" + password + "' )";
+        String insertQuery = "Insert into worker_data(first_name,last_name,address,email,gender,Age,phone,password) Values('" + fName + "', '" + lName + "', '" + address + "', '" + email + "','" + gender + "', '" + age + "','" + phone + "','" + password + "' )";
         try {
             stm = conn.obtainConnection().createStatement();
             stm.execute(insertQuery);

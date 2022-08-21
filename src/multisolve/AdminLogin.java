@@ -5,25 +5,18 @@
  */
 package multisolve;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Siam
  */
-public class UserLogin extends javax.swing.JFrame {
+public class AdminLogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form USerlogin
+     * Creates new form AdminLogin
      */
-     Connect conn = new Connect();
-    Statement stm;
-    PreparedStatement pst = null;
-    ResultSet rs = null;
-    public UserLogin() {
+    public AdminLogin() {
         initComponents();
     }
 
@@ -36,13 +29,17 @@ public class UserLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        createButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         loginButton = new javax.swing.JButton();
-        UserPasswordText = new javax.swing.JPasswordField();
+        AdminPasswordText = new javax.swing.JPasswordField();
+        jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        UserPhoneText = new javax.swing.JTextField();
+        UserRB = new javax.swing.JRadioButton();
+        WorkerRB = new javax.swing.JRadioButton();
+        OrderRB = new javax.swing.JRadioButton();
+        AdminPhoneText = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -54,21 +51,10 @@ public class UserLogin extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        createButton.setBackground(new java.awt.Color(204, 255, 255));
-        createButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        createButton.setText("Create");
-        createButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(createButton);
-        createButton.setBounds(360, 390, 93, 40);
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel6.setText("If you don't have a account, then create a account.");
+        jLabel6.setText("Welcome  Back to ADMIN PANEL");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(220, 470, 550, 29);
+        jLabel6.setBounds(250, 460, 380, 29);
 
         loginButton.setBackground(new java.awt.Color(204, 255, 255));
         loginButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -79,35 +65,54 @@ public class UserLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(loginButton);
-        loginButton.setBounds(490, 390, 90, 40);
+        loginButton.setBounds(470, 360, 160, 60);
 
-        UserPasswordText.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(UserPasswordText);
-        UserPasswordText.setBounds(330, 310, 290, 50);
+        AdminPasswordText.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jPanel1.add(AdminPasswordText);
+        AdminPasswordText.setBounds(340, 280, 290, 50);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setText("Select DataBase");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(170, 370, 170, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setText("Password");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(200, 320, 120, 30);
+        jLabel5.setBounds(200, 280, 120, 30);
 
-        UserPhoneText.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        UserPhoneText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserPhoneTextActionPerformed(evt);
-            }
-        });
-        jPanel1.add(UserPhoneText);
-        UserPhoneText.setBounds(330, 240, 290, 50);
+        buttonGroup1.add(UserRB);
+        UserRB.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        UserRB.setText("User");
+        jPanel1.add(UserRB);
+        UserRB.setBounds(350, 380, 80, 25);
+
+        buttonGroup1.add(WorkerRB);
+        WorkerRB.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        WorkerRB.setText("Worker");
+        jPanel1.add(WorkerRB);
+        WorkerRB.setBounds(350, 350, 80, 25);
+
+        buttonGroup1.add(OrderRB);
+        OrderRB.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        OrderRB.setText("Order");
+        OrderRB.setToolTipText("");
+        jPanel1.add(OrderRB);
+        OrderRB.setBounds(350, 410, 80, 25);
+
+        AdminPhoneText.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.add(AdminPhoneText);
+        AdminPhoneText.setBounds(340, 210, 290, 50);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("Phone ");
+        jLabel4.setText("User Name");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(240, 230, 110, 70);
+        jLabel4.setBounds(190, 200, 160, 70);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel3.setText("Log In as User");
+        jLabel3.setText("Log In as Admin");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(260, 110, 390, 70);
+        jLabel3.setBounds(260, 110, 410, 70);
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 51));
 
@@ -149,7 +154,7 @@ public class UserLogin extends javax.swing.JFrame {
 
         bgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/3IzejQ.jpg"))); // NOI18N
         jPanel1.add(bgLabel);
-        bgLabel.setBounds(0, 0, 900, 710);
+        bgLabel.setBounds(-20, 0, 920, 710);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,44 +170,46 @@ public class UserLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        // TODO add your handling code here:
-
-        UserReg ur = new UserReg();
-        ur.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_createButtonActionPerformed
-
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-         try {
-            String phone = UserPhoneText.getText();
-            String password = UserPasswordText.getText();
-            String sql = "Select * from user_data where phone=" + phone + " and password=" + password + "";
-            stm = conn.obtainConnection().createStatement();
-            rs = stm.executeQuery(sql);
 
-            if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Succesfully Logged In!");
-                UserPhoneText.setText("");
-                UserPasswordText.setText("");
-                UserProfile up = new UserProfile();
-                up.setVisible(true);
+        String username = AdminPhoneText.getText();
+        String password = AdminPasswordText.getText();
+
+        if (username.equals("admin") && password.equals("1234")){
+
+            JOptionPane.showMessageDialog(null, "Successfully Login!", "Welcome", 1  );
+
+            if(WorkerRB.isSelected()){
+//                ServiceInfromation ad = new ServiceInfromation();
+//                ad.setVisible(true);
+//                dispose();
+            }
+            else if (UserRB.isSelected()){
+//                UserInfromation aui = new UserInfromation();
+//                aui.setVisible(true);
+//                dispose();
+            }
+              else if (WorkerRB.isSelected()){
+                WorkerProfile wp = new WorkerProfile();
+                wp.setVisible(true);
                 dispose();
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Phone and password not Correct");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Please Select a Database!", "Null Input", 0  );
 
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+
+        }
+        else if (username.equals("") && password.equals("")){
+
+            JOptionPane.showMessageDialog(null, "Please Enter Username and Password", "Null Input", 0  );
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Please Enter Correct Username and Password !", "Wrong Information",2  );
         }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_loginButtonActionPerformed
-
-    private void UserPhoneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPhoneTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserPhoneTextActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
@@ -229,36 +236,39 @@ public class UserLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserLogin().setVisible(true);
+                new AdminLogin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField UserPasswordText;
-    private javax.swing.JTextField UserPhoneText;
+    private javax.swing.JPasswordField AdminPasswordText;
+    private javax.swing.JTextField AdminPhoneText;
+    private javax.swing.JRadioButton OrderRB;
+    private javax.swing.JRadioButton UserRB;
+    private javax.swing.JRadioButton WorkerRB;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel bgLabel;
-    private javax.swing.JButton createButton;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton loginButton;

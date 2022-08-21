@@ -200,9 +200,9 @@ public class HomePage extends javax.swing.JFrame {
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
         // TODO add your handling code here:
 
-        //        AdminLogin al = new AdminLogin();
-        //        al.setVisible(true);
-        //        dispose();
+                AdminLogin al = new AdminLogin();
+                al.setVisible(true);
+                dispose();
     }//GEN-LAST:event_adminButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
