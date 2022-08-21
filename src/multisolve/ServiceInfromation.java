@@ -47,16 +47,15 @@ public class ServiceInfromation extends javax.swing.JFrame {
         ArrayList<Worker> workerList = new ArrayList<>();
 
         try {
-             stm = conn.obtainConnection().createStatement();
+            stm = conn.obtainConnection().createStatement();
             ResultSet rs = stm.executeQuery("Select *from worker_data");
-            
 
             Worker worker;
             while (rs.next()) {
                 worker = new Worker(rs.getInt("worker_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("address"), rs.getString("email"), rs.getString("gender"), rs.getString("join_as"), rs.getInt("age"), rs.getInt("phone"), rs.getString("password"));
                 workerList.add(worker);
             }
-        } catch ( SQLException e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
         return workerList;
@@ -346,7 +345,7 @@ public class ServiceInfromation extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(130, 130, 130)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,6 +376,7 @@ public class ServiceInfromation extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(23, 23, 23)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
@@ -523,6 +523,7 @@ public class ServiceInfromation extends javax.swing.JFrame {
 
         int j = WorkerTB.getSelectedRow();
         TableModel model = WorkerTB.getModel();
+        SearchText.setText(model.getValueAt(j, 0).toString());
         wIDT.setText(model.getValueAt(j, 0).toString());
         FNameT.setText(model.getValueAt(j, 1).toString());
         LNameT.setText(model.getValueAt(j, 2).toString());
@@ -574,57 +575,54 @@ public class ServiceInfromation extends javax.swing.JFrame {
 
     private void SearchTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchTextKeyReleased
         // TODO add your handling code here:
-//        try{
-//             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//             String url="jdbc:sqlserver://localhost:1433;databaseName=MultiSolve;user=siam;password=123456;";
-//             Connection con = DriverManager.getConnection(url);
-//             
-//              String sql = "Select * from WorkerData where   wID =?";
-//            PreparedStatement pst = con.prepareStatement(sql);
-//            pst.setString(1, SearchText.getText());
-//            ResultSet rs = pst.executeQuery();
-//            if(rs.next()){
-//                String setid = rs.getString("wID");
-//                wIDT.setText(setid);
-//                String setFN = rs.getString("Fname");
-//                FNameT.setText(setFN);
-//                String setLN = rs.getString("Lname");
-//                LNameT.setText(setLN);
-//                String setAD = rs.getString("Address");
-//                AddressT.setText(setAD);
-//                String setEM = rs.getString("Email");
-//                EmailT.setText(setEM);
-//                
-//                String sex = rs.getString("Gender");
-//                 if(sex.equals("Male")){
-//                MaleRB.setSelected(true);
-//                 }
-//                   else{
-//                FemaleRB.setSelected(true);
-//                 }
-//                 String Jn= rs.getString("JoinAs");
-//                 if(Jn.equals("Tutor")){
-//                TutorRB.setSelected(true);
-//                 }
-//                else{
-//                PhotographyRB.setSelected(true);
-//                 }
-//                
-//                String setAG = rs.getString("Age");
-//                AgeT.setText(setAG);
-//                String setPN = rs.getString("Phone");
-//                PhoneT.setText(setPN);
-//                String setPS = rs.getString("Password");
-//                PasswordT.setText(setPS);
-//                
-//                
-//            
-//            
-//       }
-//         }
-//       catch(Exception e){
+        try {
+            boolean flag = false;
+            stm = conn.obtainConnection().createStatement();
+            rs = stm.executeQuery("Select * From worker_data where worker_id = '" + SearchText.getText() + "'");
+
+            if (rs.next()) {
+                flag = true;
+            } else {
+                flag = false;
+            }
+
+            if (flag == true) {
+                String setid = rs.getString("worker_id");
+                wIDT.setText(setid);
+                String setFN = rs.getString("first_name");
+                FNameT.setText(setFN);
+                String setLN = rs.getString("last_name");
+                LNameT.setText(setLN);
+                String setAD = rs.getString("address");
+                AddressT.setText(setAD);
+                String setEM = rs.getString("email");
+                EmailT.setText(setEM);
+
+                String sex = rs.getString("gender");
+                if (sex.equals("Male")) {
+                    MaleRB.setSelected(true);
+                } else {
+                    FemaleRB.setSelected(true);
+                }
+                String Jn = rs.getString("join_as");
+                if (Jn.equals("Tutor")) {
+                    TutorRB.setSelected(true);
+                } else {
+                    PhotographyRB.setSelected(true);
+                }
+
+                String setAG = rs.getString("age");
+                AgeT.setText(setAG);
+                String setPN = rs.getString("phone");
+                PhoneT.setText(setPN);
+                String setPS = rs.getString("password");
+                PasswordT.setText(setPS);
+            } else {
+                ReSet();
+            }
+        } catch (Exception e) {
 //            JOptionPane.showMessageDialog(null,e);
-//        }  
+        }
 
 
     }//GEN-LAST:event_SearchTextKeyReleased
@@ -704,7 +702,6 @@ public class ServiceInfromation extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     void Refesh() {
-
         DefaultTableModel model = (DefaultTableModel) WorkerTB.getModel();
         model.setRowCount(0);
         Show_Worker();
@@ -723,7 +720,5 @@ public class ServiceInfromation extends javax.swing.JFrame {
         AgeT.setText("");
         PhoneT.setText("");
         PasswordT.setText("");
-
     }
-
 }
