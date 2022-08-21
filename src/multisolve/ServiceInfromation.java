@@ -310,7 +310,7 @@ public class ServiceInfromation extends javax.swing.JFrame {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(FemaleRB)
                                                     .addComponent(PhotographyRB))))
-                                        .addGap(0, 72, Short.MAX_VALUE))
+                                        .addGap(0, 79, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(34, 34, 34)
@@ -350,14 +350,15 @@ public class ServiceInfromation extends javax.swing.JFrame {
                         .addGap(130, 130, 130)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(0, 161, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(backButton)
-                        .addGap(150, 150, 150))))
+                        .addGap(150, 150, 150))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(52, 52, 52)
@@ -472,49 +473,41 @@ public class ServiceInfromation extends javax.swing.JFrame {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-//      try{
-//             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//             String url="jdbc:sqlserver://localhost:1433;databaseName=MultiSolve;user=siam;password=123456;";
-//             Connection con = DriverManager.getConnection(url);
-//             
-//             int row =WorkerTB.getSelectedRow();
-//             String value = (WorkerTB.getModel().getValueAt(row, 0).toString());
-//             String qurey = "Update WorkerData set Fname=?,Lname=?,Address=?,Email=?,Gender=?,JoinAs=?,Age=?,Phone=?,Password= ? where wID="+value;
-//              PreparedStatement pst = con.prepareStatement(qurey);
-//            // pst.setString(0, wIDT.getText());
-//             pst.setString(1, FNameT.getText());
-//             pst.setString(2, LNameT.getText());
-//             pst.setString(3, AddressT.getText());
-//             pst.setString(4, EmailT.getText());
-//             if(MaleRB.isSelected()){
-//               gender= "Male";
-//             }
-//             if(FemaleRB.isSelected()){
-//               gender= "Female";
-//             }
-//              pst.setString(5, gender);
-//              if(TutorRB.isSelected()){
-//               joinAs= "Tutor";
-//             }
-//             if(PhotographyRB.isSelected()){
-//               joinAs= "Photographer";
-//             }
-//            pst.setString(6, joinAs);
-//            pst.setString(7, AgeT.getText());
-//            pst.setString(8, PhoneT.getText());
-//            pst.setString(9, PasswordT.getText());
-//               
-//            pst.executeUpdate();
-//            
-//            JOptionPane.showMessageDialog(null, "Update Sucessfully!");   
-//            Refesh();
-//            ReSet();
-//            
-//            
-//       }
-//       catch(Exception e){
-//            JOptionPane.showMessageDialog(null,e);
-//        }   
+       try {
+           int row =WorkerTB.getSelectedRow();
+            String value = (WorkerTB.getModel().getValueAt(row, 0).toString());
+           String fName = FNameT.getText();
+        String lName = LNameT.getText();
+        String address = AddressT.getText();
+        String email = EmailT.getText();
+        String gender = "male";
+        if (MaleRB.isSelected()) {
+            gender = "Male";
+        }
+        if (FemaleRB.isSelected()) {
+            gender = "Female";
+        }
+        
+        if (TutorRB.isSelected()) {
+            joinAs = "Tutor";
+        }
+        if (PhotographyRB.isSelected()) {
+            joinAs = "Photographer";
+        }
+        String age = AgeT.getText();
+        String phone = PhoneT.getText();
+        String password = PasswordT.getText(); 
+
+            if (JOptionPane.showConfirmDialog(null, "Are sure to Update this ?", "Update Conformation",
+                    JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION) {
+                stm.executeUpdate("UPDATE worker_data SET first_name='" + fName + "',last_name='" + lName + "',address='" + address + "',email='" + email + "',gender='" + gender + "',Age='" + age + "',join_as='" + joinAs + "',phone='" + phone + "',password='" + password + "' WHERE worker_id= " + value);
+            }
+            JOptionPane.showMessageDialog(null, "Update Sucessfully!");   
+            Refesh();
+            ReSet();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Update Error!!!" + e.getMessage());
+        } 
 
 
     }//GEN-LAST:event_updateButtonActionPerformed
@@ -610,7 +603,6 @@ public class ServiceInfromation extends javax.swing.JFrame {
                 } else {
                     PhotographyRB.setSelected(true);
                 }
-
                 String setAG = rs.getString("age");
                 AgeT.setText(setAG);
                 String setPN = rs.getString("phone");
@@ -623,8 +615,6 @@ public class ServiceInfromation extends javax.swing.JFrame {
         } catch (Exception e) {
 //            JOptionPane.showMessageDialog(null,e);
         }
-
-
     }//GEN-LAST:event_SearchTextKeyReleased
 
     /**
