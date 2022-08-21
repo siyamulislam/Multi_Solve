@@ -180,9 +180,9 @@ public class AdminLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Successfully Login!", "Welcome", 1  );
 
             if(WorkerRB.isSelected()){
-//                ServiceInfromation ad = new ServiceInfromation();
-//                ad.setVisible(true);
-//                dispose();
+                ServiceInfromation ad = new ServiceInfromation();
+                ad.setVisible(true);
+                dispose();
             }
             else if (UserRB.isSelected()){
 //                UserInfromation aui = new UserInfromation();
