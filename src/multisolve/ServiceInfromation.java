@@ -50,7 +50,7 @@ public class ServiceInfromation extends javax.swing.JFrame {
 
             Worker worker;
             while (rs.next()) {
-                worker = new Worker(rs.getInt("worker_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("address"), rs.getString("email"), rs.getString("gender"), rs.getString("join_as"), rs.getInt("age"), rs.getInt("phone"), rs.getString("password"));
+                worker = new Worker(rs.getInt("worker_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("address"), rs.getString("email"), rs.getString("gender"), rs.getString("join_as"), rs.getInt("age"), rs.getString("phone"), rs.getString("password"));
                 workerList.add(worker);
             }
         } catch (SQLException e) {

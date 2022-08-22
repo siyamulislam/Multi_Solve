@@ -51,7 +51,7 @@ public class UserInfromation extends javax.swing.JFrame {
             ResultSet rs = stm.executeQuery("Select *from user_data");
             User user;
             while (rs.next()) {
-                user = new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("address"), rs.getString("email"), rs.getString("gender"), rs.getInt("age"), rs.getInt("phone"), rs.getString("password"));
+                user = new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("address"), rs.getString("email"), rs.getString("gender"), rs.getInt("age"), rs.getString("phone"), rs.getString("password"));
                 userList.add(user);
             }
         } catch (SQLException e) {
@@ -426,43 +426,35 @@ public class UserInfromation extends javax.swing.JFrame {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            String url = "jdbc:sqlserver://localhost:1433;databaseName=MultiSolve;user=siam;password=123456;";
-//            Connection con = DriverManager.getConnection(url);
-//
-//            int row = WorkerTB.getSelectedRow();
-//            String value = (WorkerTB.getModel().getValueAt(row, 0).toString());
-//            String qurey = "Update UserData set Fname=?,Lname=?,Address=?,Email=?,Gender=?,JoinAs=?,Age=?,Phone=?,Password= ? where uID=" + value;
-//            PreparedStatement pst = con.prepareStatement(qurey);
-//            // pst.setString(0, wIDT.getText());
-//            pst.setString(1, FNameT.getText());
-//            pst.setString(2, LNameT.getText());
-//            pst.setString(3, AddressT.getText());
-//            pst.setString(4, EmailT.getText());
-//            if (MaleRB.isSelected()) {
-//                gender = "Male";
-//            }
-//            if (FemaleRB.isSelected()) {
-//                gender = "Female";
-//            }
-//            pst.setString(5, gender);
-//
-//            pst.setString(6, AgeT.getText());
-//            pst.setString(7, PhoneT.getText());
-//            pst.setString(8, PasswordT.getText());
-//
-//            pst.executeUpdate();
-//
-//            JOptionPane.showMessageDialog(null, "Update Sucessfully!");
-//            Refesh();
-//            ReSet();
-//
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+         try {
+            int row = WorkerTB.getSelectedRow();
+            String value = (WorkerTB.getModel().getValueAt(row, 0).toString());
+            String fName = FNameT.getText();
+            String lName = LNameT.getText();
+            String address = AddressT.getText();
+            String email = EmailT.getText();
+            String gender = "male";
+            if (MaleRB.isSelected()) {
+                gender = "Male";
+            }
+            if (FemaleRB.isSelected()) {
+                gender = "Female";
+            }
+           
+            String age = AgeT.getText();
+            String phone = PhoneT.getText();
+            String password = PasswordT.getText();
 
-
+            if (JOptionPane.showConfirmDialog(null, "Are sure to Update this ?", "Update Conformation",
+                    JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION) {
+                stm.executeUpdate("UPDATE user_data SET first_name='" + fName + "',last_name='" + lName + "',address='" + address + "',email='" + email + "',gender='" + gender + "',age='" + age + "',phone='" + phone + "',password='" + password + "' WHERE user_id= " + value);
+            }
+            JOptionPane.showMessageDialog(null, "Update Sucessfully!");
+            Refesh();
+            ReSet();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Update Error!!!" + e.getMessage());
+        }
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void WorkerTBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WorkerTBMouseClicked

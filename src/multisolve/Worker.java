@@ -20,11 +20,11 @@ class Worker {
     private String Wgender;
     private String joinAs;
     private int WAge;
-    private int WPhone;
+    private String WPhone;
     private String WPassword;
     
     
-    public Worker( int wID, String WFName, String WLName,String WAdd,String WEmail,String Wgender,String joinAs, int WAge,int WPhone,String WPassword){
+    public Worker( int wID, String WFName, String WLName,String WAdd,String WEmail,String Wgender,String joinAs, int WAge,String WPhone,String WPassword){
         this.wID=wID;
         this.WFName=WFName;
         this.WLName=WLName;
@@ -62,7 +62,7 @@ class Worker {
       public int getWAge(){
         return WAge;
     }
-        public int getWPhone(){
+        public String getWPhone(){
         return WPhone;
     }
      public String getWPassword(){

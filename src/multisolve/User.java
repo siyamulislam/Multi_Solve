@@ -20,11 +20,11 @@ class User {
     private String UEmail;
     private String Ugender;
     private int UAge;
-    private int UPhone;
+    private String UPhone;
     private String UPassword;
     
     
-    public User( int uID, String UFName, String ULName,String UAdd,String UEmail,String Ugender,int UAge,int UPhone,String UPassword){
+    public User( int uID, String UFName, String ULName,String UAdd,String UEmail,String Ugender,int UAge,String UPhone,String UPassword){
         this.uID=uID;
         this.UFName=UFName;
         this.ULName=ULName;
@@ -59,7 +59,7 @@ class User {
       public int getUAge(){
         return UAge;
     }
-        public int getUPhone(){
+        public String getUPhone(){
         return UPhone;
     }
      public String getUpassword(){
