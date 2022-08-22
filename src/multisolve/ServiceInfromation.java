@@ -47,7 +47,6 @@ public class ServiceInfromation extends javax.swing.JFrame {
         try {
             stm = conn.obtainConnection().createStatement();
             ResultSet rs = stm.executeQuery("Select *from worker_data");
-
             Worker worker;
             while (rs.next()) {
                 worker = new Worker(rs.getInt("worker_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("address"), rs.getString("email"), rs.getString("gender"), rs.getString("join_as"), rs.getInt("age"), rs.getString("phone"), rs.getString("password"));

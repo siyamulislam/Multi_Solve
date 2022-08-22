@@ -440,11 +440,9 @@ public class UserInfromation extends javax.swing.JFrame {
             if (FemaleRB.isSelected()) {
                 gender = "Female";
             }
-           
             String age = AgeT.getText();
             String phone = PhoneT.getText();
             String password = PasswordT.getText();
-
             if (JOptionPane.showConfirmDialog(null, "Are sure to Update this ?", "Update Conformation",
                     JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION) {
                 stm.executeUpdate("UPDATE user_data SET first_name='" + fName + "',last_name='" + lName + "',address='" + address + "',email='" + email + "',gender='" + gender + "',age='" + age + "',phone='" + phone + "',password='" + password + "' WHERE user_id= " + value);
@@ -482,25 +480,19 @@ public class UserInfromation extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            String url = "jdbc:sqlserver://localhost:1433;databaseName=MultiSolve;user=siam;password=123456;";
-//            Connection con = DriverManager.getConnection(url);
-//
-//            int row = WorkerTB.getSelectedRow();
-//            String value = (WorkerTB.getModel().getValueAt(row, 0).toString());
-//            String qurey = "Delete From UserData where uID=" + value;
-//            PreparedStatement pst = con.prepareStatement(qurey);
-//
-//            pst.executeUpdate();
-//
-//            JOptionPane.showMessageDialog(null, "Delete Sucessfully!");
-//            Refesh();
-//
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-
+         try {
+            if (JOptionPane.showConfirmDialog(null, "Be careful you removing a user!, Are you sure?", "Delete User", JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION) {
+                if (UIDT.getText().length() != 0) {
+                    stm.executeUpdate("Delete From user_data where user_id= " + UIDT.getText());
+                    JOptionPane.showMessageDialog(null, "Delete Sucessfully!");
+                    Refesh();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please select a user !");
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Delete error!! \n" + e.getMessage());
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void SearchTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchTextKeyReleased
