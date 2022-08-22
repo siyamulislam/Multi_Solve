@@ -1,6 +1,8 @@
 package multisolve;
 
 import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,19 +18,19 @@ import javax.swing.JOptionPane;
  *
  * @author SiamPC
  */
-public class TutorHair extends javax.swing.JFrame {
+public class PhotoGrapherHair extends javax.swing.JFrame {
 
     /**
      * Creates new form
      *
      */
-    String Version, Stype;
+    String Stype;
     Connect conn = new Connect();
     Statement stm;
     PreparedStatement pst = null;
     ResultSet rs = null;
 
-    public TutorHair() {
+    public PhotoGrapherHair() {
         initComponents();
     }
 
@@ -49,17 +51,14 @@ public class TutorHair extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         resetButton = new javax.swing.JButton();
         DateT = new javax.swing.JTextField();
-        SubjectRB = new javax.swing.JTextField();
+        DurationT = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        MonthRB = new javax.swing.JRadioButton();
-        HourRB = new javax.swing.JRadioButton();
+        dailyRB = new javax.swing.JRadioButton();
+        clickRB = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        ClassT = new javax.swing.JTextField();
+        EventT = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        EnglishRB = new javax.swing.JRadioButton();
-        BanglaRB = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -86,7 +85,7 @@ public class TutorHair extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Contact Number");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(40, 297, 110, 20);
+        jLabel6.setBounds(30, 300, 100, 14);
 
         resetButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         resetButton.setText("Reset");
@@ -102,79 +101,57 @@ public class TutorHair extends javax.swing.JFrame {
         jPanel1.add(DateT);
         DateT.setBounds(140, 250, 180, 30);
 
-        SubjectRB.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(SubjectRB);
-        SubjectRB.setBounds(130, 160, 190, 30);
+        DurationT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel1.add(DurationT);
+        DurationT.setBounds(130, 160, 190, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("Subject");
+        jLabel7.setText("Duration");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(40, 160, 110, 20);
+        jLabel7.setBounds(30, 160, 70, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Date");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(40, 250, 40, 20);
+        jLabel5.setBounds(30, 250, 40, 20);
 
-        buttonGroup2.add(MonthRB);
-        MonthRB.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        MonthRB.setText("Monthly");
-        MonthRB.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(dailyRB);
+        dailyRB.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        dailyRB.setText("Per/Day");
+        dailyRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MonthRBActionPerformed(evt);
+                dailyRBActionPerformed(evt);
             }
         });
-        jPanel1.add(MonthRB);
-        MonthRB.setBounds(230, 210, 93, 25);
+        jPanel1.add(dailyRB);
+        dailyRB.setBounds(230, 210, 90, 25);
 
-        buttonGroup2.add(HourRB);
-        HourRB.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        HourRB.setText("Hourly");
-        jPanel1.add(HourRB);
-        HourRB.setBounds(140, 210, 70, 25);
+        buttonGroup2.add(clickRB);
+        clickRB.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        clickRB.setText("Per/Click");
+        clickRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clickRBActionPerformed(evt);
+            }
+        });
+        jPanel1.add(clickRB);
+        clickRB.setBounds(130, 210, 90, 25);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Service Type");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(40, 210, 90, 20);
+        jLabel4.setBounds(30, 210, 90, 20);
 
-        ClassT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(ClassT);
-        ClassT.setBounds(130, 120, 190, 30);
+        EventT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel1.add(EventT);
+        EventT.setBounds(130, 120, 190, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Class");
+        jLabel3.setText("Event");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(40, 120, 70, 20);
+        jLabel3.setBounds(30, 120, 70, 20);
 
-        buttonGroup1.add(EnglishRB);
-        EnglishRB.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        EnglishRB.setText("English");
-        EnglishRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnglishRBActionPerformed(evt);
-            }
-        });
-        jPanel1.add(EnglishRB);
-        EnglishRB.setBounds(240, 80, 80, 25);
-
-        buttonGroup1.add(BanglaRB);
-        BanglaRB.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BanglaRB.setText("Bangla");
-        BanglaRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BanglaRBActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BanglaRB);
-        BanglaRB.setBounds(150, 80, 70, 25);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Version");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(40, 80, 60, 17);
-
-        jPanel2.setBackground(new java.awt.Color(153, 255, 51));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
         backButton.setBackground(new java.awt.Color(153, 255, 204));
         backButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -212,9 +189,9 @@ public class TutorHair extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 610, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/books-3.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PhotoGG.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 610, 500);
+        jLabel1.setBounds(0, -40, 630, 510);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,36 +207,21 @@ public class TutorHair extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BanglaRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BanglaRBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BanglaRBActionPerformed
-
-    private void EnglishRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnglishRBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EnglishRBActionPerformed
-
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-
-        String Version = Version = "Bangla";
-        if (BanglaRB.isSelected()) {
-            Version = "Bangla";
-        }
-        if (EnglishRB.isSelected()) {
-            Version = "English";
-        }
-        String Class = ClassT.getText();
-        String Subject = SubjectRB.getText();
+        // TODO add your handling code here:
+        String Event = EventT.getText();
+        String Duration = DurationT.getText();
         String Type = "Hourly";
-        if (HourRB.isSelected()) {
-            Type = "Hourly";
+        if (clickRB.isSelected()) {
+            Type = "Per/Click";
         }
-        if (MonthRB.isSelected()) {
-            Type = "Monthly";
+        if (dailyRB.isSelected()) {
+            Type = "Per/Day";
         }
         String Date = DateT.getText();
         String Contact_Number = PhoneT.getText();
 
-        String insertQuery = "Insert into tutor_order(version,class,subject,type,date,contact_number) Values('" + Version + "', '" + Class + "', '" + Subject + "', '" + Type + "', '" + Date + "','" + Contact_Number + "' )";
+        String insertQuery = "Insert into photo_order(event,duration,type,date,contact_number) Values('" + Event + "', '" + Duration + "', '" + Type + "', '" + Date + "','" + Contact_Number + "' )";
         try {
             stm = conn.obtainConnection().createStatement();
             stm.execute(insertQuery);
@@ -269,19 +231,17 @@ public class TutorHair extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
-    private void MonthRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthRBActionPerformed
+    private void dailyRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dailyRBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MonthRBActionPerformed
+    }//GEN-LAST:event_dailyRBActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         // TODO add your handling code here:
 
-        ClassT.setText("");
-        SubjectRB.setText("");
+        EventT.setText("");
+        DurationT.setText("");
         DateT.setText("");
         PhoneT.setText("");
-
-
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -291,6 +251,10 @@ public class TutorHair extends javax.swing.JFrame {
         up.setVisible(true);
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void clickRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickRBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clickRBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,39 +273,38 @@ public class TutorHair extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TutorHair.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhotoGrapherHair.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TutorHair.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhotoGrapherHair.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TutorHair.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhotoGrapherHair.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TutorHair.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PhotoGrapherHair.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TutorHair().setVisible(true);
+                new PhotoGrapherHair().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton BanglaRB;
-    private javax.swing.JTextField ClassT;
     private javax.swing.JTextField DateT;
-    private javax.swing.JRadioButton EnglishRB;
-    private javax.swing.JRadioButton HourRB;
-    private javax.swing.JRadioButton MonthRB;
+    private javax.swing.JTextField DurationT;
+    private javax.swing.JTextField EventT;
     private javax.swing.JTextField PhoneT;
-    private javax.swing.JTextField SubjectRB;
     private javax.swing.JButton backButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JRadioButton clickRB;
+    private javax.swing.JRadioButton dailyRB;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -186,9 +186,9 @@ public class UserProfile extends javax.swing.JFrame {
     private void photographyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_photographyButtonActionPerformed
         // TODO add your handling code here:
 
-//        PhotoGrapherHair pgh = new PhotoGrapherHair();
-//        pgh.setVisible(true);
-//        dispose();
+        PhotoGrapherHair pgh = new PhotoGrapherHair();
+        pgh.setVisible(true);
+        dispose();
     }//GEN-LAST:event_photographyButtonActionPerformed
 
     private void tutorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tutorButtonActionPerformed
