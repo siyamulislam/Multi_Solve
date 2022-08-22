@@ -31,10 +31,8 @@ public class ServiceInfromation extends javax.swing.JFrame {
     Statement stm;
     PreparedStatement pst = null;
     ResultSet rs = null;
-
     public ServiceInfromation() {
         initComponents();
-
         Show_Worker();
     }
 

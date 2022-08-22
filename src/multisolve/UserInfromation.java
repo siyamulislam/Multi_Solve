@@ -513,45 +513,45 @@ public class UserInfromation extends javax.swing.JFrame {
 
     private void SearchTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchTextKeyReleased
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            String url = "jdbc:sqlserver://localhost:1433;databaseName=MultiSolve;user=siam;password=123456;";
-//            Connection con = DriverManager.getConnection(url);
-//
-//            String sql = "Select * from UserData where   uID =?";
-//            PreparedStatement pst = con.prepareStatement(sql);
-//            pst.setString(1, SearchText.getText());
-//            ResultSet rs = pst.executeQuery();
-//            if (rs.next()) {
-//                String setid = rs.getString("uID");
-//                UIDT.setText(setid);
-//                String setFN = rs.getString("Fname");
-//                FNameT.setText(setFN);
-//                String setLN = rs.getString("Lname");
-//                LNameT.setText(setLN);
-//                String setAD = rs.getString("Address");
-//                AddressT.setText(setAD);
-//                String setEM = rs.getString("Email");
-//                EmailT.setText(setEM);
-//
-//                String sex = rs.getString("Gender");
-//                if (sex.equals("Male")) {
-//                    MaleRB.setSelected(true);
-//                } else {
-//                    FemaleRB.setSelected(true);
-//                }
-//
-//                String setAG = rs.getString("Age");
-//                AgeT.setText(setAG);
-//                String setPN = rs.getString("Phone");
-//                PhoneT.setText(setPN);
-//                String setPS = rs.getString("Password");
-//                PasswordT.setText(setPS);
-//
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+        try {
+            stm = conn.obtainConnection().createStatement();
+            rs = stm.executeQuery("Select * From user_data where user_id = '" + SearchText.getText() + "'");
+            boolean flag = false;
+            if (rs.next()) {
+                flag = true;
+            } else {
+                flag = false;
+            }
+            if (flag == true) {
+                String setid = rs.getString("user_id");
+                UIDT.setText(setid);
+                String setFN = rs.getString("first_name");
+                FNameT.setText(setFN);
+                String setLN = rs.getString("last_name");
+                LNameT.setText(setLN);
+                String setAD = rs.getString("address");
+                AddressT.setText(setAD);
+                String setEM = rs.getString("email");
+                EmailT.setText(setEM);
+
+                String sex = rs.getString("gender");
+                if (sex.equals("Male")) {
+                    MaleRB.setSelected(true);
+                } else {
+                    FemaleRB.setSelected(true);
+                }
+                String setAG = rs.getString("age");
+                AgeT.setText(setAG);
+                String setPN = rs.getString("phone");
+                PhoneT.setText(setPN);
+                String setPS = rs.getString("password");
+                PasswordT.setText(setPS);
+            } else {
+                ReSet();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
 
     }//GEN-LAST:event_SearchTextKeyReleased
