@@ -31,6 +31,29 @@ create table user_data (
  
 alter table user_data auto_increment=20001
 
+create table tutor_order (
+ order_id int primary key auto_increment, 
+ version varchar(50) not null,
+  class varchar(10) not null,
+  subject varchar(30) not null,
+  type varchar(20) not null,
+  date varchar (50) not null,
+  contact_number varchar(11) not null
+ )
+ 
+alter table tutor_order auto_increment=50001
+
+create table photo_order 
+  (
+  order_id int primary key auto_increment, 
+  event varchar(50) not null,
+  duration varchar(20) not null,
+  type varchar(20) not null,
+  date varchar (50) not null,
+  contact_number varchar(11) not null
+  )
+
+  alter table photo_order auto_increment=60001
 
 
 

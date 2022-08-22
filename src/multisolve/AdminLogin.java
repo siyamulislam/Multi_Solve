@@ -189,7 +189,7 @@ public class AdminLogin extends javax.swing.JFrame {
                 aui.setVisible(true);
                 dispose();
             }
-              else if (WorkerRB.isSelected()){
+              else if (OrderRB.isSelected()){
                 WorkerProfile wp = new WorkerProfile();
                 wp.setVisible(true);
                 dispose();

@@ -19,10 +19,11 @@ public class UserLogin extends javax.swing.JFrame {
     /**
      * Creates new form USerlogin
      */
-     Connect conn = new Connect();
+    Connect conn = new Connect();
     Statement stm;
     PreparedStatement pst = null;
     ResultSet rs = null;
+
     public UserLogin() {
         initComponents();
     }
@@ -174,9 +175,12 @@ public class UserLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-         try {
+        try {
             String phone = UserPhoneText.getText();
             String password = UserPasswordText.getText();
+//             if (phone.equals("") && password.equals("")) {
+//                JOptionPane.showMessageDialog(null, "Please Enter Phone and Password", "Null Input", 0);
+//            }
             String sql = "Select * from user_data where phone=" + phone + " and password=" + password + "";
             stm = conn.obtainConnection().createStatement();
             rs = stm.executeQuery(sql);
@@ -188,11 +192,7 @@ public class UserLogin extends javax.swing.JFrame {
                 UserProfile up = new UserProfile();
                 up.setVisible(true);
                 dispose();
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Phone and password not Correct");
-
-            }
+            } 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
