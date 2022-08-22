@@ -10,10 +10,6 @@ package multisolve;
  * @author Siam
  */
 public class UserProfile extends javax.swing.JFrame {
-
-    /**
-     * Creates new form userProfile
-     */
     public UserProfile() {
         initComponents();
     }
@@ -28,8 +24,8 @@ public class UserProfile extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        photographyButton = new javax.swing.JButton();
+        tutorButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -41,34 +37,34 @@ public class UserProfile extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
         bgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        jButton3.setBackground(new java.awt.Color(204, 255, 255));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton3.setText("Photography");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        photographyButton.setBackground(new java.awt.Color(204, 255, 255));
+        photographyButton.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        photographyButton.setText("Photography");
+        photographyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                photographyButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3);
-        jButton3.setBounds(460, 590, 240, 60);
+        jPanel1.add(photographyButton);
+        photographyButton.setBounds(460, 590, 240, 60);
 
-        jButton2.setBackground(new java.awt.Color(204, 255, 255));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton2.setText("Home Tutor");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        tutorButton.setBackground(new java.awt.Color(204, 255, 255));
+        tutorButton.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        tutorButton.setText("Home Tutor");
+        tutorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                tutorButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(460, 500, 240, 60);
+        jPanel1.add(tutorButton);
+        tutorButton.setBounds(460, 500, 240, 60);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel8.setText("Services");
@@ -136,12 +132,12 @@ public class UserProfile extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setText("MultiSolve");
 
-        jButton1.setBackground(new java.awt.Color(102, 255, 204));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("Home");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        homeButton.setBackground(new java.awt.Color(102, 255, 204));
+        homeButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        homeButton.setText("Home");
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                homeButtonActionPerformed(evt);
             }
         });
 
@@ -153,7 +149,7 @@ public class UserProfile extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 772, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(homeButton)
                 .addGap(154, 154, 154))
         );
         jPanel2Layout.setVerticalGroup(
@@ -162,7 +158,7 @@ public class UserProfile extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(homeButton))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -187,28 +183,29 @@ public class UserProfile extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void photographyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_photographyButtonActionPerformed
         // TODO add your handling code here:
 
 //        PhotoGrapherHair pgh = new PhotoGrapherHair();
 //        pgh.setVisible(true);
 //        dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_photographyButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void tutorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tutorButtonActionPerformed
         // TODO add your handling code here:
 
-//        TutorHair  htl = new TutorHair();
-//        htl.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        TutorHair  htl = new TutorHair();
+        htl.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_tutorButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
 
         HomePage hm = new HomePage();
         hm.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_homeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,9 +245,7 @@ public class UserProfile extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton homeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -263,5 +258,7 @@ public class UserProfile extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JButton photographyButton;
+    private javax.swing.JButton tutorButton;
     // End of variables declaration//GEN-END:variables
 }
