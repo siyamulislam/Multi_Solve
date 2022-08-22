@@ -1,8 +1,5 @@
 package multisolve;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+ 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,14 +19,13 @@ import javax.swing.table.TableModel;
  */
 public class UserInfromation extends javax.swing.JFrame {
 
-    String gender, joinAs;
+    String gender;
 
     /**
      * Creates new form HomeTutorList
      */
     Connect conn = new Connect();
     Statement stm;
-    PreparedStatement pst = null;
     ResultSet rs = null;
 
     public UserInfromation() {

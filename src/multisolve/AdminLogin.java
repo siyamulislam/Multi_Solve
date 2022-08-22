@@ -185,9 +185,9 @@ public class AdminLogin extends javax.swing.JFrame {
                 dispose();
             }
             else if (UserRB.isSelected()){
-//                UserInfromation aui = new UserInfromation();
-//                aui.setVisible(true);
-//                dispose();
+                UserInfromation aui = new UserInfromation();
+                aui.setVisible(true);
+                dispose();
             }
               else if (WorkerRB.isSelected()){
                 WorkerProfile wp = new WorkerProfile();
@@ -196,9 +196,7 @@ public class AdminLogin extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(null, "Please Select a Database!", "Null Input", 0  );
-
             }
-
         }
         else if (username.equals("") && password.equals("")){
 
