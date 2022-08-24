@@ -58,6 +58,7 @@ public class AdminLogin extends javax.swing.JFrame {
 
         loginButton.setBackground(new java.awt.Color(204, 255, 255));
         loginButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        loginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/login.png"))); // NOI18N
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,8 +120,8 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("MultiSolve");
 
-        backButton.setBackground(new java.awt.Color(51, 255, 204));
         backButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/back.png"))); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +136,7 @@ public class AdminLogin extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 613, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 589, Short.MAX_VALUE)
                 .addComponent(backButton)
                 .addGap(58, 58, 58))
         );
@@ -146,7 +147,7 @@ public class AdminLogin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(backButton))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
@@ -180,7 +181,7 @@ public class AdminLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Successfully Login!", "Welcome", 1  );
 
             if(WorkerRB.isSelected()){
-                ServiceInfromation ad = new ServiceInfromation();
+                WorkerInfromation ad = new WorkerInfromation();
                 ad.setVisible(true);
                 dispose();
             }

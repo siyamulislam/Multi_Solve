@@ -1,8 +1,6 @@
 package multisolve;
 
-import java.awt.HeadlessException;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.awt.HeadlessException; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -69,6 +67,7 @@ public class PhotoGrapherHair extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         submitButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        submitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/submit.png"))); // NOI18N
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +75,7 @@ public class PhotoGrapherHair extends javax.swing.JFrame {
             }
         });
         jPanel1.add(submitButton);
-        submitButton.setBounds(120, 350, 90, 40);
+        submitButton.setBounds(200, 350, 120, 40);
 
         PhoneT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(PhoneT);
@@ -88,6 +87,7 @@ public class PhotoGrapherHair extends javax.swing.JFrame {
         jLabel6.setBounds(30, 300, 100, 14);
 
         resetButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        resetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/reset.png"))); // NOI18N
         resetButton.setText("Reset");
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +95,7 @@ public class PhotoGrapherHair extends javax.swing.JFrame {
             }
         });
         jPanel1.add(resetButton);
-        resetButton.setBounds(250, 350, 90, 40);
+        resetButton.setBounds(30, 350, 120, 40);
 
         DateT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(DateT);
@@ -153,8 +153,8 @@ public class PhotoGrapherHair extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
-        backButton.setBackground(new java.awt.Color(153, 255, 204));
         backButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/back.png"))); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +172,7 @@ public class PhotoGrapherHair extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addComponent(backButton)
                 .addGap(23, 23, 23))
         );

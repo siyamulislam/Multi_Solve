@@ -53,8 +53,8 @@ public class Workerlogin extends javax.swing.JFrame {
 
         mainPanel.setLayout(null);
 
-        createButton.setBackground(new java.awt.Color(204, 255, 255));
         createButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        createButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/add-user.png"))); // NOI18N
         createButton.setText("Create");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,15 +62,15 @@ public class Workerlogin extends javax.swing.JFrame {
             }
         });
         mainPanel.add(createButton);
-        createButton.setBounds(360, 390, 93, 40);
+        createButton.setBounds(333, 390, 120, 40);
 
         infoLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         infoLabel.setText("If you don't have a account, then create a account.");
         mainPanel.add(infoLabel);
         infoLabel.setBounds(220, 470, 550, 29);
 
-        loginButton.setBackground(new java.awt.Color(204, 255, 255));
         loginButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        loginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/login24.png"))); // NOI18N
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +78,7 @@ public class Workerlogin extends javax.swing.JFrame {
             }
         });
         mainPanel.add(loginButton);
-        loginButton.setBounds(490, 390, 90, 40);
+        loginButton.setBounds(490, 390, 130, 40);
 
         passwordTextFiled.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         mainPanel.add(passwordTextFiled);
@@ -109,6 +109,7 @@ public class Workerlogin extends javax.swing.JFrame {
         titleLabel.setText("MultiSolve");
 
         backButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/back.png"))); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +124,7 @@ public class Workerlogin extends javax.swing.JFrame {
             .addGroup(headPanelLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(titleLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 613, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 585, Short.MAX_VALUE)
                 .addComponent(backButton)
                 .addGap(58, 58, 58))
         );
@@ -134,7 +135,7 @@ public class Workerlogin extends javax.swing.JFrame {
                 .addGroup(headPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleLabel)
                     .addComponent(backButton))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         mainPanel.add(headPanel);

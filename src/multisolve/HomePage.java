@@ -105,21 +105,21 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(headingPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(title)
-                .addGap(69, 69, 69)
+                .addGap(76, 76, 76)
                 .addComponent(faqButton)
-                .addGap(43, 43, 43)
+                .addGap(37, 37, 37)
                 .addComponent(contactButton)
-                .addGap(48, 48, 48)
+                .addGap(52, 52, 52)
                 .addComponent(aboutButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(loginAsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addComponent(workerButton)
-                .addGap(18, 18, 18)
-                .addComponent(userButton)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(userButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
+                .addGap(73, 73, 73))
         );
         headingPanelLayout.setVerticalGroup(
             headingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +146,7 @@ public class HomePage extends javax.swing.JFrame {
         closeButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         closeButton.setForeground(new java.awt.Color(204, 0, 0));
         closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/erase-128.png"))); // NOI18N
-        closeButton.setText("  Close");
+        closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeButtonActionPerformed(evt);

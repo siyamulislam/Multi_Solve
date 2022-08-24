@@ -55,8 +55,8 @@ public class UserLogin extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        createButton.setBackground(new java.awt.Color(204, 255, 255));
         createButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        createButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/add-user.png"))); // NOI18N
         createButton.setText("Create");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,15 +64,15 @@ public class UserLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(createButton);
-        createButton.setBounds(360, 390, 93, 40);
+        createButton.setBounds(333, 390, 120, 40);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("If you don't have a account, then create a account.");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(220, 470, 550, 29);
 
-        loginButton.setBackground(new java.awt.Color(204, 255, 255));
         loginButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        loginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/login24.png"))); // NOI18N
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +80,7 @@ public class UserLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(loginButton);
-        loginButton.setBounds(490, 390, 90, 40);
+        loginButton.setBounds(490, 390, 120, 40);
 
         UserPasswordText.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(UserPasswordText);
@@ -115,8 +115,8 @@ public class UserLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("MultiSolve");
 
-        backButton.setBackground(new java.awt.Color(51, 255, 204));
         backButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/back.png"))); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +131,7 @@ public class UserLogin extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 613, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 585, Short.MAX_VALUE)
                 .addComponent(backButton)
                 .addGap(58, 58, 58))
         );
@@ -142,7 +142,7 @@ public class UserLogin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(backButton))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
