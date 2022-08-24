@@ -209,7 +209,7 @@ public class UserReg extends javax.swing.JFrame {
         bgLabel.setText(" ");
         bgLabel.setMaximumSize(new java.awt.Dimension(1300, 700));
         jPanel1.add(bgLabel);
-        bgLabel.setBounds(10, 0, 900, 730);
+        bgLabel.setBounds(0, 0, 910, 730);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

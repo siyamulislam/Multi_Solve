@@ -5,8 +5,6 @@
  */
 package multisolve;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -150,7 +148,7 @@ public class AvailableOrders extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 153, 51));
         jLabel1.setText("Available Orders");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(230, 0, 210, 50);
