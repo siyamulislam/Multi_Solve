@@ -1,8 +1,5 @@
 package multisolve;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -23,7 +20,6 @@ public class Workerlogin extends javax.swing.JFrame {
      */
     Connect conn = new Connect();
     Statement stm;
-    PreparedStatement pst = null;
     ResultSet rs = null;
 
     public Workerlogin() {
@@ -201,7 +197,7 @@ public class Workerlogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Succesfully Logged In!");
                 phoneTextFiled.setText("");
                 passwordTextFiled.setText("");
-                WorkerProfile wp = new WorkerProfile();
+             WorkerProfile wp = new WorkerProfile();
                 wp.setVisible(true);
                 dispose();
 

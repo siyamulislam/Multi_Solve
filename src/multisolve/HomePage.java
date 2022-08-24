@@ -37,7 +37,7 @@ public class HomePage extends javax.swing.JFrame {
         userButton = new javax.swing.JButton();
         loginAsLabel = new javax.swing.JLabel();
         adminButton = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
         backgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,8 +68,8 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        workerButton.setBackground(new java.awt.Color(153, 255, 204));
         workerButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        workerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/worker.png"))); // NOI18N
         workerButton.setText("Worker");
         workerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,8 +77,8 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        userButton.setBackground(new java.awt.Color(153, 255, 204));
         userButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        userButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user.png"))); // NOI18N
         userButton.setText("User");
         userButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,8 +89,8 @@ public class HomePage extends javax.swing.JFrame {
         loginAsLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         loginAsLabel.setText("Log in as");
 
-        adminButton.setBackground(new java.awt.Color(153, 255, 204));
         adminButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        adminButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/admin.png"))); // NOI18N
         adminButton.setText("Admin");
         adminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,13 +111,13 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(contactButton)
                 .addGap(48, 48, 48)
                 .addComponent(aboutButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(loginAsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(workerButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
+                .addComponent(userButton)
+                .addGap(18, 18, 18)
                 .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67))
         );
@@ -132,29 +132,28 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(loginAsLabel)
                             .addComponent(workerButton)
                             .addComponent(userButton)
-                            .addComponent(adminButton)))
-                    .addGroup(headingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(title)
-                        .addComponent(faqButton)
-                        .addComponent(contactButton)
-                        .addComponent(aboutButton)))
+                            .addComponent(adminButton)
+                            .addComponent(aboutButton)
+                            .addComponent(contactButton)
+                            .addComponent(faqButton)))
+                    .addComponent(title))
                 .addGap(20, 20, 20))
         );
 
         mainPanel.add(headingPanel);
         headingPanel.setBounds(0, 0, 1300, 100);
 
-        exitButton.setBackground(new java.awt.Color(255, 0, 0));
-        exitButton.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        exitButton.setForeground(new java.awt.Color(255, 255, 255));
-        exitButton.setText("Exit");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
+        closeButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(204, 0, 0));
+        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/erase-128.png"))); // NOI18N
+        closeButton.setText("  Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
+                closeButtonActionPerformed(evt);
             }
         });
-        mainPanel.add(exitButton);
-        exitButton.setBounds(1130, 610, 140, 60);
+        mainPanel.add(closeButton);
+        closeButton.setBounds(1170, 640, 110, 40);
 
         backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Homepage.png"))); // NOI18N
         mainPanel.add(backgroundLabel);
@@ -205,10 +204,10 @@ public class HomePage extends javax.swing.JFrame {
                 dispose();
     }//GEN-LAST:event_adminButtonActionPerformed
 
-    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_exitButtonActionPerformed
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,8 +248,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton aboutButton;
     private javax.swing.JButton adminButton;
     private javax.swing.JLabel backgroundLabel;
+    private javax.swing.JButton closeButton;
     private javax.swing.JButton contactButton;
-    private javax.swing.JButton exitButton;
     private javax.swing.JButton faqButton;
     private javax.swing.JPanel headingPanel;
     private javax.swing.JLabel loginAsLabel;
